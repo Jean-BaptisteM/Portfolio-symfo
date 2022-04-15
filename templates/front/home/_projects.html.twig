@@ -1,0 +1,63 @@
+<section class="pb-5 js-scroll fade-in-bottom">
+	<div class="container">
+		<div class="text-center">
+			<a href="{{ path('project_index') }}" class="project-index-link">
+				<h5 class="section-title">Mes Projets récents</h5>
+			</a>
+		</div>
+		<div class="row justify-content-around">
+			{% for project in projects %}
+				<div class="col-12  col-lg-6 col-xl-4 js-scroll fade-in-bottom">
+					<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+						<div class="mainflip">
+							<div class="frontside">
+								<div class="card frontside-style">
+									<div>
+										<p><img class="img-fluid project-img-home" src="{{project.image}}" alt="card image"></p>
+									</div>
+									<div class="card-body justify-content-center d-flex align-items-end">
+										<div>
+											<h4 class="card-title-frontside">{{project.title}}</h4>
+											<ul class="list-inline">
+												{% for category in project.categories %}
+													<li class="list-inline-item">
+														<p class="card-pill">{{category.name}}</p>
+													</li>
+												{% endfor %}
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="backside">
+								<div class="card backside-style">
+									<div class="card-body text-center mt-4 d-flex align-items-center">
+										<div>
+											<a href="{{ path('project_index') }}#{{ project.id }}" class="backside-project-link">
+												<h4 class="card-title-backside">{{project.title}}</h4>
+												<p class="card-text">{{project.summary}}</p>
+											</a>
+											<ul class="list-inline mt-3">
+												{% for category in project.categories %}
+													<li class="list-inline-item backside-category">
+														<form action="{{ path('filter') }}">
+															<input name="filterCategory" type="hidden" value="{{ category.name }}">
+															<button type="submit" class="card-pill-link">{{ category.name }}</button>
+														</li>
+													</li>
+												</form>
+											{% endfor %}
+										</ul>
+										<a href="{{ path('project_index') }}#{{ project.id }}">
+											<i class="fa fa-plus" aria-hidden="true"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div></section>

@@ -1,0 +1,18 @@
+{% extends 'bundles/TwigBundle/Exception/base.html.twig' %}
+
+
+{% block title %}Page non trouvée
+{% endblock %}
+{% block body %}
+	<div class="col-12 error-container">
+		<div class="my-3">
+			<img src="{{ asset('assets/img/404.png') }}" alt="image d'erreur 403" class="error-img">
+			<p class="error-text">Page Not Found</p>
+		</div>
+		<div class="my-3">
+			<a href="{{ path('home') }}" class="btn-login text-decoration-none">
+				Retourner à l'accueil
+			</a>
+		</div>
+	</div>
+{% endblock %}

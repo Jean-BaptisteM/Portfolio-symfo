@@ -1,0 +1,28 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+Projet
+{% endblock %}
+
+{% block body %}
+	<h1 class="back-title">Liste des Projets</h1>
+	<div class="text-end">
+	<a href="{{ path('app_back_project_new') }}"class="btn m-2 col-3">Ajouter une Entrée</a>
+	</div>
+	<div class="row d-flex justify-content-around">
+		{% for project in projects %}
+			<div class="my-3 mx-1 mx-md-3 col-lg-5 col-xxl-3 p-0 d-flex justify-content-center">
+				<a href="{{ path('app_back_project_show', {'id': project.id}) }}" class="text-decoration-none text-center">
+				<img src="{{project.image}}" alt="{{project.title}}" class="max-project-image card border-secondary text-center">
+				</a>
+			</div>
+		{% else %}
+			<div class="card border-secondary my-3 mx-1 mx-md-3 col-lg-5 col-xxl-3 p-0">
+				<div class="card-header text-center">Aucune donnée trouvée</div>
+			</div>
+		{% endfor %}
+
+	</div>
+       
+{% endblock %}
+

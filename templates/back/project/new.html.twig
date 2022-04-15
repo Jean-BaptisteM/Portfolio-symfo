@@ -1,0 +1,13 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+ Nouveau Projet
+{% endblock %}
+
+{% block body %}
+    <h1 class="back-title">Créer un nouveau Projet</h1>
+
+    {{ include('back/project/_form.html.twig') }}
+
+    <a href="{{ path('app_back_project_index') }}" class="btn m-2 col-4">Retour à la liste</a>
+{% endblock %}

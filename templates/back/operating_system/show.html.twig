@@ -1,0 +1,31 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+	OS :
+	{{ operating_system.name }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="back-title">OS :
+		{{ operating_system.name }}</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ operating_system.id }}</td>
+			</tr>
+			<tr>
+				<th>Nom</th>
+				<td>{{ operating_system.name }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="d-flex flex-column">
+		<a href="{{ path('app_back_operating_system_index') }}" class="btn my-2 col-4">Retour à la liste</a>
+
+		<a href="{{ path('app_back_operating_system_edit', {'id': operating_system.id}) }}" class="btn my-2 col-4">Modifier</a>
+
+		{{ include('back/operating_system/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

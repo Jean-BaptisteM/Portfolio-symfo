@@ -1,0 +1,17 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+	Editer le Langage de Database
+{% endblock %}
+
+{% block body %}
+	<h1 class="back-title">Editer le Langage de Database</h1>
+
+	<div class="d-flex flex-column">
+		{{ include('back/database/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+		<a href="{{ path('app_back_database_index') }}" class="btn my-2 col-4">Retour à la liste</a>
+
+		{{ include('back/database/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

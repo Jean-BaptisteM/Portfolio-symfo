@@ -1,0 +1,16 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+	Editer l'Utilisateur
+{% endblock %}
+
+{% block body %}
+	<h1 class="back-title">Editer l'Utilisateur</h1>
+	<div class="d-flex flex-column">
+		{{ include('back/user/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+		<a href="{{ path('app_back_user_index') }}" class="btn my-2 col-4">Retour à la liste</a>
+
+		{{ include('back/user/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

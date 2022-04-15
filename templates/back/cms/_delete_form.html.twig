@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_back_cms_delete', {'id': cms.id}) }}" onsubmit="return confirm('Etes-vous certain de vouloir supprimer ce CMS ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cms.id) }}">
+    <button class="btn my-2 col-4">Supprimer</button>
+</form>

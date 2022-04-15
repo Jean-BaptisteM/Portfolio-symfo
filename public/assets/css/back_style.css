@@ -1,0 +1,180 @@
+@media (min-width: 768px) {
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+}
+
+body {
+    background: #1a0933;
+}
+
+.avatar-profil {
+    max-width: 65px;
+    text-align: center;
+    animation: backInDown;
+    animation-duration: 2s;
+}
+
+.avatar-profil-link {
+    transition: transform 0.5s;
+}
+
+.avatar-profil-link:hover {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 0.5rem #d40fdb);
+}
+
+.nav-logo-back {
+    max-width: 65px;
+    animation: flip;
+    animation-duration: 2s;
+    transition: transform 0.5s;
+}
+
+.nav-logo-back:hover {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 0.5rem #d40fdb);
+}
+
+.nav-link {
+    color: #1a0933 !important;
+    font-weight: bold;
+    font-size: 1.2em;
+    position: relative;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-link-active,
+.navbar-nav>.active>a {
+    color: #991b7d !important;
+    font-weight: bold;
+    font-size: 1.2em;
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #991b7d !important;
+    transition: 0.3s;
+}
+
+.nav-link::before {
+    content: "";
+    color: #991b7d;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #991b7d;
+    transform: scaleX(0);
+    transition: transform 0.75s ease;
+}
+
+.nav-link:hover::before {
+    transform: scaleX(1);
+}
+
+.card:hover {
+    filter: drop-shadow(0 0 0.5rem #44d9e8);
+    transition: 0.5s;
+}
+
+.card {
+    transition: 0.5s;
+}
+
+.card-header {
+    font-size: 2em;
+}
+
+.list-group-item {
+    background: #1a0933;
+}
+
+.home-link-list {
+    list-style-type: none;
+}
+
+.home-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.home-link-item {
+    text-decoration: none;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.home-link-item:hover {
+    text-decoration: none;
+    background: #44d9e8;
+    color: #1a0933;
+    transition: 0.5s;
+}
+
+.back-title {
+    margin: 2em 0;
+    text-align: center;
+}
+
+.btn {
+    border: 2px #44d9e8 solid;
+    color: #44d9e8;
+    text-shadow: 0 0 0.1rem #44d9e8;
+    filter: drop-shadow(0 0 0.2rem #44d9e8);
+    transition: 0.75s;
+}
+
+.btn:hover {
+    background-color: #000000;
+    border: 2px #44d9e8 solid;
+    color: #44d9e8;
+    text-shadow: 0 0 1rem #44d9e8;
+    filter: drop-shadow(0 0 0.75rem #44d9e8);
+    transition: 0.75s;
+}
+
+.btn-delete {
+    border: none;
+    text-shadow: none;
+    transition: 0.75s;
+}
+
+.btn-delete:hover {
+    background-color: none;
+    border: none;
+    color: #44d9e8;
+    text-shadow: none;
+    filter: none;
+    transition: 0.75s;
+}
+
+.max-image-size-back {
+    max-width: 10rem;
+    border-radius: 50%;
+}
+
+.home-badge-link {
+    transition: transform .4s;
+}
+
+.home-badge-link:hover {
+    transform: scale(1.25);
+}
+
+.max-project-image {
+    max-width: 350px;
+}
+
+.visit-number {
+    font-size: 5em;
+}
+
+.delete-form {
+    text-align: center;
+}

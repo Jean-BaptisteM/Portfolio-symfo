@@ -1,0 +1,228 @@
+{% extends 'back/base.html.twig' %}
+
+{% block body %}
+{% include 'back/home/_dashboard.html.twig' %}
+	<div class="row d-flex justify-content-around">
+		<div class="card border-primary my-3 mx-1 mx-md-3 col-lg-5 p-0">
+			<div class="card-header text-center">Mon Profil</div>
+			<div class="text-center row align-items-center mx-1 my-3 ">
+				<a href="{{ path('app_back_user_show', {id:app.user.id}) }}" class="avatar-profil-link"><img src="{{ asset('assets/img/avatar-backoffice.png') }}" alt="" class="avatar-profil"></a>
+			</div>
+		</div>
+		<div class="card border-primary my-3 mx-1 mx-md-3 col-lg-5 p-0">
+			<a href="{{ path('app_back_project_index')}}" class="home-link">
+				<div class="card-header text-center">Projets</div>
+			</a>
+			<div class="row d-flex justify-content-center align-items-center">
+				{% for project in projects %}
+					<div class="col-lg-3 col-2 mx-1 my-3 text-center home-badge-link d-flex justify-content-center">
+						<a href="{{ path('app_back_project_show', {'id': project.id}) }}" class="badge bg-primary">
+							<div class="badge bg-primary">
+								{{ project.title }}
+							</div>
+						</a>
+					</div>
+				{% else %}
+					<div class="mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_project_new') }}">
+							<div class="badge bg-secondary">
+								Pas de Projet actuellement
+							</div>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="card border-primary my-3 mx-1 mx-md-3 col-lg-5 p-0">
+			<a href="{{ path('app_back_category_index')}}" class="home-link">
+				<div class="card-header text-center">Catégories</div>
+			</a>
+			<div class="row justify-content-center align-items-center">
+				{% for category in categories %}
+					<div class="col-lg-3 col-2 mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_category_show', {'id': category.id}) }}">
+							<div class="badge bg-primary">
+								{{ category.name }}
+							</div>
+						</a>
+					</div>
+				{% else %}
+					<div class="mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_category_new') }}">
+							<div class="badge bg-secondary">
+								Pas de Catégorie actuellement
+							</div>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="card border-primary my-3 mx-1 mx-md-3 col-lg-5 p-0">
+			<a href="{{ path('app_back_language_index')}}" class="home-link">
+				<div class="card-header text-center">Langages</div>
+			</a>
+			<div class="row justify-content-center align-items-center">
+				{% for language in languages %}
+					<div class="col-lg-3 col-2 mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_language_show', {'id': language.id}) }}">
+							<div class="badge bg-primary">
+								{{ language.name }}
+							</div>
+						</a>
+					</div>
+				{% else %}
+					<div class="mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_language_new') }}">
+							<div class="badge bg-secondary">
+								Pas de Langage actuellement
+							</div>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="card border-primary my-3 mx-1 mx-md-3 col-lg-5 p-0">
+			<a href="{{ path('app_back_database_index')}}" class="home-link">
+				<div class="card-header text-center">Databases</div>
+			</a>
+			<div class="row justify-content-center align-items-center">
+				{% for database in databases %}
+					<div class="col-lg-3 col-2 mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_database_show', {'id': database.id}) }}">
+							<div class="badge bg-primary">
+								{{ database.name }}
+							</div>
+						</a>
+					</div>
+				{% else %}
+					<div class="mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_database_new') }}">
+							<div class="badge bg-secondary">
+								Pas de Database actuellement
+							</div>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="card border-primary my-3 mx-1 mx-md-3 col-lg-5 p-0">
+			<a href="{{ path('app_back_framework_index')}}" class="home-link">
+				<div class="card-header text-center">Frameworks</div>
+			</a>
+			<div class="row justify-content-center align-items-center">
+				{% for framework in frameworks %}
+					<div class="col-lg-3 col-2 mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_framework_show', {'id': framework.id}) }}">
+							<div class="badge bg-primary">
+								{{ framework.name }}
+							</div>
+						</a>
+					</div>
+				{% else %}
+					<div class="mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_framework_new') }}">
+							<div class="badge bg-secondary">
+								Pas de Framework actuellement
+							</div>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="card border-primary my-3 mx-1 mx-md-3 col-lg-5 p-0">
+			<a href="{{ path('app_back_cms_index')}}" class="home-link">
+				<div class="card-header text-center">CMS</div>
+			</a>
+			<div class="row justify-content-center align-items-center">
+				{% for cms in cmss %}
+					<div class="col-lg-3 col-2 mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_cms_show', {'id': cms.id}) }}">
+							<div class="badge bg-primary">
+								{{ cms.name }}
+							</div>
+						</a>
+					</div>
+				{% else %}
+					<div class="mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_cms_new') }}">
+							<div class="badge bg-secondary">
+								Pas de CMS actuellement
+							</div>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="card border-primary my-3 mx-1 mx-md-3 col-lg-5 p-0">
+			<a href="{{ path('app_back_versionning_index')}}" class="home-link">
+				<div class="card-header text-center">Versionnings</div>
+			</a>
+			<div class="row justify-content-center align-items-center">
+				{% for versionning in versionnings %}
+					<div class="col-lg-3 col-2 mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_versionning_show', {'id': versionning.id}) }}">
+							<div class="badge bg-primary">
+								{{ versionning.name }}
+							</div>
+						</a>
+					</div>
+				{% else %}
+					<div class="mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_versionning_new') }}">
+							<div class="badge bg-secondary">
+								Pas de Versionning actuellement
+							</div>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="card border-primary my-3 mx-1 mx-md-3 col-lg-5 p-0">
+			<a href="{{ path('app_back_operating_system_index')}}" class="home-link">
+				<div class="card-header text-center">OS</div>
+			</a>
+			<div class="row justify-content-center align-items-center">
+				{% for operating_system in operating_systems %}
+					<div class="col-lg-3 col-2 mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_operating_system_show', {'id': operating_system.id}) }}">
+							<div class="badge bg-primary">
+								{{ operating_system.name }}
+							</div>
+						</a>
+					</div>
+				{% else %}
+					<div class="mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_operating_system_new') }}">
+							<div class="badge bg-secondary">
+								Pas d'OS actuellement
+							</div>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="card border-primary my-3 mx-1 mx-md-3 col-lg-5 p-0">
+			<a href="{{ path('app_back_software_index')}}" class="home-link">
+				<div class="card-header text-center">Softwares</div>
+			</a>
+			<div class="row justify-content-center align-items-center">
+				{% for software in softwares %}
+					<div class="col-lg-3 col-2 mx-1 my-3 text-center home-badge-link">
+						<a href="{{ path('app_back_software_show', {'id': software.id}) }}">
+							<div class="badge bg-primary">
+								{{ software.name }}
+							</div>
+						</a>
+					</div>
+				{% else %}
+					<div class="mx-1 my-3 text-center">
+						<a href="{{ path('app_back_software_new') }}">
+							<div class="badge bg-secondary">
+								Pas de Software actuellement
+							</div>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% endblock %}

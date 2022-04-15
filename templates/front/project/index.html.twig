@@ -1,0 +1,61 @@
+{% extends 'front/base.html.twig' %}
+{% block title %}
+	Mes Projets récents
+{% endblock %}
+{% block body %}
+	<h1 class="project-title">
+		Mes Projets récents
+	</h1>
+	{% for project in projects %}
+		{% if loop.index < 4 %}
+			<div id="{{ project.id }}" class="container container-project-card my-5">
+			{% else %}
+				<div id="{{ project.id }}" class="container container-project-card my-5 js-scroll fade-in-bottom">
+				{% endif %}
+				<div class="row justify-content-center">
+					<div class="row mx-1 my-4 col-sm-12 justify-content-around">
+						<div class="col-lg-6 text-center d-flex align-items-center justify-content-center">
+							<div>
+								<img src="{{ project.image }}" class="project-img my-3"/>
+								<div class="list-inline m-2  d-flex align-items-center justify-content-center">
+									<ul class="list-inline mt-3">
+										{% for category in project.categories %}
+											<li class="list-inline-item backside-category">
+												<form action="{{ path('filter') }}">
+													<input name="filterCategory" type="hidden" value="{{ category.name }}">
+													<button type="submit" class="card-pill-link">{{ category.name }}</button>
+												</li>
+											</li>
+										</form>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 align-self-center text-center">
+						<div class="m-2">
+						<h3 class="project-presentation-title m-3">
+								{{ project.title }}
+							</h3>
+							<div class="project-presentation">
+								{{ project.summary }}
+							</div>
+							<h3 class="project-subtitle m-3">
+								Description
+							</h3>
+							<div class="project-presentation">
+								{{ project.description }}
+							</div>
+							<div>
+								<a href="{{project.url}}" target="_blank"
+								><i class="fa fa-arrow-circle-right social-icon" aria-hidden="true"></i></a>
+								<a href="{{project.github}}" target="_blank"
+								><i class="fa fa-github social-icon" aria-hidden="true"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

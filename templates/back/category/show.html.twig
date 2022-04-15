@@ -1,0 +1,31 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+	Catégorie :
+	{{ category.name }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="back-title">Catégorie :
+		{{ category.name }}</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ category.id }}</td>
+			</tr>
+			<tr>
+				<th>Nom</th>
+				<td>{{ category.name }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="d-flex flex-column">
+		<a href="{{ path('app_back_category_index') }}" class="btn my-2 col-4">Retour à la liste</a>
+
+		<a href="{{ path('app_back_category_edit', {'id': category.id}) }}" class="btn my-2 col-4">Modifier</a>
+
+		{{ include('back/category/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

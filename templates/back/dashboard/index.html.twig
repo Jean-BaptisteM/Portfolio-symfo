@@ -1,0 +1,49 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+	Dashboard
+{% endblock %}
+
+{% block body %}
+	<h1 class="back-title">Dashboard</h1>
+	<div class="row d-flex justify-content-center col-12 my-3 mx-1">
+	<div class="col-12 col-lg-6 my-2">
+		<div class="card text-white bg-secondary text-end">
+			<div class="card-body">
+				<span class="visit-number">{{visit_counter.viewsDailyNumber}}</span><br>Visites aujourd'hui</div>
+		</div>
+	</div>
+    <div class="col-12 col-lg-6 my-2">
+		<div class="card text-white bg-secondary text-end">
+			<div class="card-body">
+				<span class="visit-number">{{visit_counter.viewsDailyDiff}}</span><br>Visites de différence avec hier</div>
+		</div>
+	</div>
+	<div class="col-12 col-lg-6 my-2">
+		<div class="card text-white bg-primary text-end">
+			<div class="card-body">
+				<span class="visit-number">{{visit_counter.viewsCurrentMonthNumber}}</span><br>Visites ce mois</div>
+		</div>
+	</div>
+    <div class="col-12 col-lg-6 my-2">
+		<div class="card text-white bg-primary text-end">
+			<div class="card-body">
+				<span class="visit-number">{{visit_counter.viewsMonthDiff}}</span><br>Visites de différence avec le mois dernier</div>
+		</div>
+	</div>
+	<div class="col-12 col-lg-6 my-2">
+		<div class="card text-white bg-info text-end">
+			<div class="card-body">
+				<span class="visit-number">{{visit_counter.viewsCurrentYearNumber}}</span><br>Visites cette année</div>
+		</div>
+	</div>
+    <div class="col-12 col-lg-6 my-2">
+		<div class="card text-white bg-light text-end">
+			<div class="card-body">
+				<span class="visit-number">{{visit_counter.viewsTotalNumber}}</span><br>Visites totales</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+	Catégories
+{% endblock %}
+
+{% block body %}
+	<h1 class="back-title">Liste des Catégories</h1>
+	<div class="text-end">
+		<a href="{{ path('app_back_category_new') }}" class="btn m-2 col-3">Ajouter une Entrée</a>
+	</div>
+	<div class="row d-flex justify-content-around">
+		{% for category in categories %}
+			<div class="card border-secondary my-3 mx-1 mx-md-3 col-lg-5 col-xl-3 col-xxl-2 p-0">
+				<a href="{{ path('app_back_category_show', {'id': category.id}) }}" class="text-decoration-none">
+					<div class="card-header text-center">{{ category.name }}</div>
+				</a>
+			</div>
+		{% else %}
+			<div class="card border-secondary my-3 mx-1 mx-md-3 col-lg-5 col-xl-3 col-xxl-2 p-0">
+				<div class="card-header text-center">Aucune donnée trouvée</div>
+			</div>
+		{% endfor %}
+
+	</div>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+	Projet :
+	{{ project.title }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="back-title">Projet :
+		{{ project.title }}</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ project.id }}</td>
+			</tr>
+			<tr>
+				<th>Titre</th>
+				<td>{{ project.title }}</td>
+			</tr>
+			<tr>
+				<th>Résumé</th>
+				<td>{{ project.summary }}</td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td>{{ project.description }}</td>
+			</tr>
+			<tr>
+				<th>Github</th>
+				<td>{{ project.github }}</td>
+			</tr>
+			<tr>
+				<th>Url</th>
+				<td>{{ project.url }}</td>
+			</tr>
+			<tr>
+				<th>Image</th>
+				<td><img src="{{ project.image }}" class="max-project-image"></td>
+			</tr>
+			<tr>
+				<th>Catégories</th>
+				<td>
+					{% for category in project.categories %}
+						<a href="{{ path('app_back_category_show', {'id': category.id}) }}" class="profil-badge-link text-decoration-none">
+							<span class="badge bg-primary mx-1">
+								{{ category.name }}
+							</span>
+						</a>
+					{% else %}
+						<a href="{{ path('app_back_project_edit', {'id': project.id}) }}" class="home-badge-link">
+							<span class="badge bg-secondary mx-1">
+								Pas de Catégorie actuellement
+							</span>
+						</a>
+					{% endfor %}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="d-flex flex-column">
+		<a href="{{ path('app_back_project_index') }}" class="btn my-2 col-4">Retour à la liste</a>
+
+		<a href="{{ path('app_back_project_edit', {'id': project.id}) }}" class="btn my-2 col-4">Modifier</a>
+
+		{{ include('back/project/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

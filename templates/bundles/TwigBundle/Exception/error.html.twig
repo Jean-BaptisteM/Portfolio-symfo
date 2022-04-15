@@ -1,0 +1,20 @@
+{% extends 'bundles/TwigBundle/Exception/base.html.twig' %}
+
+{% block title %}
+	{{ status_code }}
+	{{ status_text }}
+{% endblock %}
+
+{% block body %}
+	<div class="col-12 error-container">
+		<div class="my-5">
+			<p class="error-text">{{ status_code }}
+				{{ status_text }}</p>
+		</div>
+		<div class="my-5">
+			<a href="{{ path('home') }}" class="btn-login text-decoration-none">
+				Retourner à l'accueil
+			</a>
+		</div>
+	</div>
+{% endblock %}

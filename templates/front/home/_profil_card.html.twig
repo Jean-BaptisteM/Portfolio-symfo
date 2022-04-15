@@ -1,0 +1,124 @@
+<section class="container container-card my-5 js-scroll fade-in-bottom">
+  <div class="row justify-content-center">
+    <div class="row mx-1 my-4 col-sm-12 justify-content-around">
+      <div class="col-lg-6 align-self-center text-center">
+        <div class="m-2">
+          <h3 class="profil-subtitle">
+            Qui suis-je?
+          </h3>
+          <div class="profil-presentation">
+            {{ user.presentation }}
+          </div>
+          <div>
+            <a href="mailto:{{ user.email }}"
+			><i class="fa fa-envelope social-icon" aria-hidden="true"></i></a>
+            <a href="{{ user.linkedin }}" target="_blank"
+			><i class="fa fa-linkedin-square social-icon" aria-hidden="true"></i></a>
+            <a href="{{ user.twitter }}" target="_blank"
+			><i class="fa fa-twitter-square social-icon" aria-hidden="true"></i></a>
+            <a href="{{ user.github }}" target="_blank"
+			><i class="fa fa-github social-icon" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 row text-center  js-scroll slide-right">
+        <div class="align-self-center">
+          <img src="{{ user.image }}" class="profil-image my-3" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="row my-4 col-sm-12 justify-content-around">
+      <div class="col-lg-6 text-center">
+        <div class="m-2">
+          <h3 class="profil-subtitle">
+            Programmation
+          </h3>
+          <div class="skill-subtitle mt-2">
+            Langages
+          </div>
+          <div class="skill-presentation">
+            {% for language in languages %}
+              {{ language.name }}
+              {% if not loop.last %}
+                -
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="skill-subtitle mt-2">
+            Frameworks
+          </div>
+          <div class="skill-presentation">
+            {% for framework in frameworks %}
+              {{ framework.name }}
+              {% if not loop.last %}
+                -
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="skill-subtitle mt-2">
+            Base de données
+          </div>
+          <div class="skill-presentation">
+            {% for database in databases %}
+              {{ database.name }}
+              {% if not loop.last %}
+                -
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="skill-subtitle mt-2">
+            Versionning
+          </div>
+          <div class="skill-presentation">
+            {% for versionning in versionnings %}
+              {{ versionning.name }}
+              {% if not loop.last %}
+                -
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <div class="m-2">
+          <h3 class="profil-subtitle">
+            Tools
+          </h3>
+          <div class="skill-subtitle mt-2">
+            OS
+          </div>
+          <div class="skill-presentation">
+            {% for operating_system in operating_systems %}
+              {{ operating_system.name }}
+              {% if not loop.last %}
+                -
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="skill-subtitle mt-2">
+            Softwares
+          </div>
+          <div class="skill-presentation">
+            {% for software in softwares %}
+              {{ software.name }}
+              {% if not loop.last %}
+                -
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center m-4">
+    <div class="text-center">
+      <a download
+        href="{{ asset('assets/img/CV-Moisy-Jean-Baptiste.pdf') }}"
+        class="btn-cv">
+        Télécharger mon CV
+      </a>
+    </div>
+  </div>
+</section>

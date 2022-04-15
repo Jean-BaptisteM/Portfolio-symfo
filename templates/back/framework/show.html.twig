@@ -1,0 +1,31 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+	Framework :
+	{{ framework.name }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="back-title">Framework :
+		{{ framework.name }}</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ framework.id }}</td>
+			</tr>
+			<tr>
+				<th>Nom</th>
+				<td>{{ framework.name }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="d-flex flex-column">
+		<a href="{{ path('app_back_framework_index') }}" class="btn my-2 col-4">Retour à la liste</a>
+
+		<a href="{{ path('app_back_framework_edit', {'id': framework.id}) }}" class="btn my-2 col-4">Modifier</a>
+
+		{{ include('back/framework/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

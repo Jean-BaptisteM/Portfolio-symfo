@@ -1,0 +1,10 @@
+{% extends 'front/base.html.twig' %}
+{% block title %}
+	Portfolio de Jean-Baptiste Moisy
+{% endblock %}
+{% block body %}
+	<div>{{visit_counter.addVisit}}</div>
+	{% include 'front/partials/_hero.html.twig' %}
+	{% include 'front/home/_profil_card.html.twig' %}
+	{% include 'front/home/_projects.html.twig' %}
+{% endblock %}

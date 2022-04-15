@@ -1,0 +1,224 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+	{{ user.username }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="back-title">{{ user.username }}</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ user.id }}</td>
+			</tr>
+			<tr>
+				<th>Username</th>
+				<td>{{ user.username }}</td>
+			</tr>
+			<tr>
+				<th>Roles</th>
+				<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+			</tr>
+			<tr>
+				<th>Firstname</th>
+				<td>{{ user.firstname }}</td>
+			</tr>
+			<tr>
+				<th>Lastname</th>
+				<td>{{ user.lastname }}</td>
+			</tr>
+			<tr>
+				<th>Profil</th>
+				<td>{{ user.profil }}</td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td>{{ user.email }}</td>
+			</tr>
+			<tr>
+				<th>Github</th>
+				<td>{{ user.github }}</td>
+			</tr>
+			<tr>
+				<th>Linkedin</th>
+				<td>{{ user.linkedin }}</td>
+			</tr>
+			<tr>
+				<th>Twitter</th>
+				<td>{{ user.twitter }}</td>
+			</tr>
+			<tr>
+				<th>Presentation</th>
+				<td>{{ user.presentation }}</td>
+			</tr>
+			<tr>
+				<th>Image</th>
+				<td><img src="{{ user.image }}" class="max-image-size-back"></td>
+			</tr>
+			<tr>
+				<th>Age</th>
+				<td>
+					{% set dateOfBirth = user.age|date('d-m-Y') %}
+					{% set today = "now"|date('d-m-Y') %}
+					{% set difference = date(today).diff(date(dateOfBirth))%}
+					{% set leftYears = difference.days %}
+					{{ (leftYears)//365.25 }}
+					ans
+				</td>
+			</tr>
+			<tr>
+				<th>Projets</th>
+				<td>
+					{% for project in user.projects %}
+						<a href="{{ path('app_back_project_show', {'id': project.id}) }}" class="profil-badge-link text-decoration-none">
+							<span class="badge bg-primary mx-1">
+								{{ project.title }}
+							</span>
+						</a>
+					{% else %}
+						<a href="{{ path('app_back_project_new') }}" class="home-badge-link">
+							<span class="badge bg-secondary mx-1">
+								Pas de Projet actuellement
+							</span>
+						</a>
+					{% endfor %}
+				</td>
+			</tr>
+			<tr>
+				<th>Langages</th>
+				<td>
+					{% for language in user.languages %}
+						<a href="{{ path('app_back_language_show', {'id': language.id}) }}" class="profil-badge-link text-decoration-none">
+							<span class="badge bg-primary mx-1">
+								{{ language.name }}
+							</span>
+						</a>
+					{% else %}
+						<a href="{{ path('app_back_language_new') }}" class="home-badge-link">
+							<span class="badge bg-secondary mx-1">
+								Pas de Langage actuellement
+							</span>
+						</a>
+					{% endfor %}
+				</td>
+			</tr>
+			<tr>
+				<th>Base de données</th>
+				<td>
+					{% for databaseLanguage in user.databaseLanguages %}
+						<a href="{{ path('app_back_database_show', {'id': databaseLanguage.id}) }}" class="profil-badge-link text-decoration-none">
+							<span class="badge bg-primary mx-1">
+								{{ databaseLanguage.name }}
+							</span>
+						</a>
+					{% else %}
+						<a href="{{ path('app_back_database_new') }}" class="home-badge-link">
+							<span class="badge bg-secondary mx-1">
+								Pas de Langage de Base de Données actuellement
+							</span>
+						</a>
+					{% endfor %}
+				</td>
+			</tr>
+			<tr>
+				<th>Frameworks</th>
+				<td>
+					{% for framework in user.frameworks %}
+						<a href="{{ path('app_back_framework_show', {'id': framework.id}) }}" class="profil-badge-link text-decoration-none">
+							<span class="badge bg-primary mx-1">
+								{{ framework.name }}
+							</span>
+						</a>
+					{% else %}
+						<a href="{{ path('app_back_framework_new') }}" class="home-badge-link">
+							<span class="badge bg-secondary mx-1">
+								Pas de Framework actuellement
+							</span>
+						</a>
+					{% endfor %}
+				</td>
+			</tr>
+			<tr>
+				<th>CMS</th>
+				<td>
+					{% for cm in user.cms %}
+						<a href="{{ path('app_back_cms_show', {'id': cm.id}) }}" class="profil-badge-link text-decoration-none">
+							<span class="badge bg-primary mx-1">
+								{{ cm.name }}
+							</span>
+						</a>
+					{% else %}
+						<a href="{{ path('app_back_cms_new') }}" class="home-badge-link">
+							<span class="badge bg-secondary mx-1">
+								Pas de CMS actuellement
+							</span>
+						</a>
+					{% endfor %}
+				</td>
+			</tr>
+			<tr>
+				<th>Versionning</th>
+				<td>
+					{% for versionning in user.versionnings %}
+						<a href="{{ path('app_back_versionning_show', {'id': versionning.id}) }}" class="profil-badge-link text-decoration-none">
+							<span class="badge bg-primary mx-1">
+								{{ versionning.name }}
+							</span>
+						</a>
+					{% else %}
+						<a href="{{ path('app_back_versionning_new') }}" class="home-badge-link">
+							<span class="badge bg-secondary mx-1">
+								Pas de Versionning actuellement
+							</span>
+						</a>
+					{% endfor %}
+				</td>
+			</tr>
+			<tr>
+				<th>OS</th>
+				<td>
+					{% for operatingSystem in user.operatingSystems %}
+						<a href="{{ path('app_back_operating_system_show', {'id': operatingSystem.id}) }}" class="profil-badge-link text-decoration-none">
+							<span class="badge bg-primary mx-1">
+								{{ operatingSystem.name }}
+							</span>
+						</a>
+					{% else %}
+						<a href="{{ path('app_back_operating_system_new') }}" class="home-badge-link">
+							<span class="badge bg-secondary mx-1">
+								Pas d'OS actuellement
+							</span>
+						</a>
+					{% endfor %}
+				</td>
+			</tr>
+			<tr>
+				<th>Softwares</th>
+				<td>
+					{% for software in user.softwares %}
+						<a href="{{ path('app_back_software_show', {'id': software.id}) }}" class="profil-badge-link text-decoration-none">
+							<span class="badge bg-primary mx-1">
+								{{ software.name }}
+							</span>
+						</a>
+					{% else %}
+						<a href="{{ path('app_back_software_new') }}" class="home-badge-link">
+							<span class="badge bg-secondary mx-1">
+								Pas de Software actuellement
+							</span>
+						</a>
+					{% endfor %}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="d-flex flex-column">
+		<a href="{{ path('app_back_user_index') }}" class="btn my-2 col-4">Retour à la liste</a>
+
+		<a href="{{ path('app_back_user_edit', {'id': user.id}) }}" class="btn my-2 col-4">Modifier</a>
+
+		{{ include('back/user/_delete_form.html.twig') }}
+	</div>
+{% endblock %}
