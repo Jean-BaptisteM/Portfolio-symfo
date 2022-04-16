@@ -196,6 +196,7 @@ footer {
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .avatar {
